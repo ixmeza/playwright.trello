@@ -1,0 +1,25 @@
+{
+  "name": "playwright.trello",
+  "version": "1.0.0",
+  "description": "Automation tests for trello using playwright",
+  "main": "index.js",
+  "type": "commonjs",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "./node_modules/mocha/bin/mocha --no-timeouts"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@babel/cli": "^7.12.10",
+    "@babel/core": "^7.12.3",
+    "@babel/preset-env": "^7.12.1",
+    "@babel/register": "^7.12.10",
+    "chai": "*",
+    "mocha": "^8.2.1",
+    "playwright": "^1.7.0"
+  }
+}
