@@ -15,6 +15,7 @@ Automated tests demo with playwright for trello (https://trello.com/)
 - Update checklist items status
 
 ## Demo
+(Please allow some time for gif to load)
 ![Demo-todo-list](/images/playwright.gif)
 
 
