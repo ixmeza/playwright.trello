@@ -9,7 +9,7 @@ Automated tests demo with playwright for trello (https://trello.com/)
 - Delete Board
 - Add lists to board
 - Add cards to list
-- Update card list
+- Move card from one list to another
 - Update card description
 - Add checklist to list
 - Update checklist items status
