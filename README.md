@@ -10,8 +10,8 @@ Automated tests demo with playwright for trello (https://trello.com/)
 - Add lists to board
 - Add cards to list
 - Update card list
-- Update cad description
-- Add checklist to board
+- Update card description
+- Add checklist to list
 - Update checklist items status
 
 ## Demo
