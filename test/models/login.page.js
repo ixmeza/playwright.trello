@@ -17,7 +17,7 @@ class LoginPage extends BasePage {
     await this.page.fill(this.username, user);
     await this.page.click(this.loginAtlassian);
     await this.page.waitForLoadState("networkidle");
-    await this.page.screenshot({ path: 'screenshot.png', fullPage: true });
+    console.log(await this.page.screenshot({ path: 'screenshot.png', fullPage: true }));
     // it redirects to atlasian login
     await this.page.fill(this.password, pwd);
     await this.page.click(this.loginBtn);

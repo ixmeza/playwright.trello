@@ -3,8 +3,7 @@ class BasePage {
         this.page = page;
     }
     async navigate(path){
-        
-        await this.page.goto(`https://trello.com/${path}`)
+        await this.page.goto(`https://trello.com/${path}`);
     }
     async getUser(url)
     {
