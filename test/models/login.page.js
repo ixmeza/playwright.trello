@@ -15,6 +15,7 @@ class LoginPage extends BasePage {
 
   async login(user, pwd) {
     await this.page.fill(this.username, user);
+    await this.page.waitForSelector(this.loginAtlassian, {state: "visible"});
     await this.page.click(this.loginAtlassian);
     await this.page.waitForLoadState("networkidle");
     console.log(await this.page.screenshot({ path: 'screenshot.png', fullPage: true }));
