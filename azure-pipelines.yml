@@ -33,8 +33,3 @@ steps:
 - bash: |
     npm run test 
   displayName: 'run the tests'
-- task: PublishBuildArtifacts@1
-  inputs:
-    PathtoPublish: '$(Build.ArtifactStagingDirectory)'
-    ArtifactName: 'drop'
-    publishLocation: 'Container'
