@@ -9,12 +9,14 @@ Automated tests demo with playwright for trello (https://trello.com/)
 - Delete Board
 - Add lists to board
 - Add cards to list
-- Update card list
-- Update cad description
-- Add checklist to board
+- Move card from one list to another
+- Update card description
+- Add checklist to list
 - Update checklist items status
 
 ## Demo
+Please allow some time for gif to load
+
 ![Demo-todo-list](/images/playwright.gif)
 
 
