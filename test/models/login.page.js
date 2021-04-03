@@ -20,6 +20,7 @@ class LoginPage extends BasePage {
     console.log(await this.page.screenshot({ path: 'screenshot.png', fullPage: true }));
     // it redirects to atlasian login
     await this.page.fill(this.password, pwd);
+    await this.page.waitForSelector(this.loginBtn, {state:"visible"});
     await this.page.click(this.loginBtn);
     await this.page.waitForSelector(`[aria-label='HouseIcon']`);
     await this.page.waitForLoadState("load");
