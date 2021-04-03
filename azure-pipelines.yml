@@ -31,5 +31,5 @@ steps:
   displayName: 'npm install and run tests'
 
 - bash: |
-    npm run test 'test/specs/e2e.test.js' 
+    npm run test 
   displayName: 'run the tests'
