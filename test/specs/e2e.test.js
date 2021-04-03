@@ -9,7 +9,7 @@ describe("Automation tests for trello using playwright", () => {
   let browser, page, login, home, board, username;
 
   before(async () => {
-    browser = await chromium.launch({ headless: false });
+    browser = await chromium.launch();
     page = await browser.newPage();
     login = new LoginPage(page);
     home = new HomePage(page);
