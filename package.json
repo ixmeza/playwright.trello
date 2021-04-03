@@ -8,18 +8,18 @@
     "test": "test"
   },
   "scripts": {
-    "test": "./node_modules/mocha/bin/mocha --no-timeouts"
+    "test": "./node_modules/mocha/bin/mocha --no-timeouts test/specs/e2e.test.js"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "@babel/cli": "^7.12.10",
-    "@babel/core": "^7.12.3",
-    "@babel/preset-env": "^7.12.1",
-    "@babel/register": "^7.12.10",
+    "@babel/cli": "^7.13.14",
+    "@babel/core": "^7.13.14",
+    "@babel/preset-env": "^7.13.12",
+    "@babel/register": "^7.13.14",
     "chai": "*",
-    "mocha": "^8.2.1",
-    "playwright": "^1.7.0"
+    "mocha": "^8.3.2",
+    "playwright": "^1.10.0"
   }
 }

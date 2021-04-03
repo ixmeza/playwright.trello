@@ -5,11 +5,7 @@
 
 trigger:
 - main
-variables:
-  email-var: $(email)
-  password-var: $(pwd)
-  username-var: $(username)
-  
+
 pool:
   vmImage: 'ubuntu-latest'
 

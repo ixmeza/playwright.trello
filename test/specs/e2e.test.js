@@ -7,6 +7,7 @@ const testConfig = require("../../config.json");
 
 describe("Automation tests for trello using playwright", () => {
   let browser, page, login, home, board, username;
+
   before(async () => {
     browser = await chromium.launch({ headless: false });
     page = await browser.newPage();
@@ -46,10 +47,14 @@ describe("Automation tests for trello using playwright", () => {
     //creating an extra board for demo purposes
     await home.createBoard("cypress");
     await page.getAttribute(`input[aria-label='cypress']`, "value");
+    await home.goToHome();
+
+    await home.createBoard("dummy");
+    await page.getAttribute(`input[aria-label='dummy']`, "value");
   });
 
   it("Should be able to close a board", async () => {
-    const boardname = "cypress";
+    const boardname = "playwright";
 
     // go to Team Boards under Trello Workspace
     await home.getTeamsBoards();
@@ -67,9 +72,21 @@ describe("Automation tests for trello using playwright", () => {
     const isPresent = await home.isBoardPresent(boardname);
     assert(isPresent === false);
 
-    // closing another board for demo purposes
-    await home.openBoardInBoards("playwright");
+    //closing another board for demo
+    await home.getTeamsBoards();
+    // opening board
+    await home.openBoardInBoards("cypress");
+    // closing board
     await board.closeBoard();
+
+    await home.goToHome();
+     //closing another board for demo
+     await home.getTeamsBoards();
+     // opening board
+     await home.openBoardInBoards("dummy");
+     // closing board
+     await board.closeBoard();
+
   });
 
   it("Should be able to reopen a closed board", async () => {
@@ -263,6 +280,13 @@ describe("Automation tests for trello using playwright", () => {
     await home.viewClosedBoards();
     // deleting board
     await home.deleteBoard(boardname);
+
+    await home.goToHome();
+    await home.getTeamsBoards();
+    // cleaning up dummy created
+    await home.viewClosedBoards();
+  
+    await home.deleteBoard("dummy");
 
   });
 

@@ -1,9 +1,10 @@
 const BasePage = require("./base.page.js");
+const testConfig = require("../../config.json");
 
 class HomePage extends BasePage {
   constructor(page) {
     super(page);
-    this.trello = "span._1q-xxtNvcdFBca";
+    
     this.homeTop = `[aria-label='HouseIcon']`;
     this.boardTop = `button span [aria-label='BoardIcon']`;
     this.boardsLeft = `.icon-board`;
@@ -14,8 +15,9 @@ class HomePage extends BasePage {
     this.private = `._1vKsXPLDUZ7hbH li:nth-child(1) ._2FCfpANq784raH.LrSeigrVRlrVHb`;
     this.teamBoards = `[data-test-id='home-team-boards-tab']`;
     this.viewClosedBoardsBtn = `.content-all-boards button:nth-child(1)`;
-    this.closedBoardsTitle = `//h2[text()='Closed Boards']`;
+    this.closedBoardsTitle = `//h2[text()='Closed boards']`;
     this.closedBoards = `div._1rhhEuk7pUqNV_ a`;
+    this.mostPopularTemplates = `//*[text()='Most popular templates']`;
   }
 
   async navigate(username) {
@@ -23,14 +25,16 @@ class HomePage extends BasePage {
   }
 
   async waitForPageLoaded() {
-    await this.page.waitForSelector(this.trello, { state: "visible" });
+    
     await this.page.waitForSelector(this.homeTop, { state: "visible" });
     await this.page.waitForSelector(this.boardTop, { state: "visible" });
     await this.page.waitForSelector(this.createBoardLink, { state: "visible" });
     await this.page.waitForSelector(this.teamBoards, { state: "visible" });
   }
   async goToHome() {
-    await this.page.click(this.homeTop);
+    await this.page.goto(`https://trello.com/${testConfig.username}/boards`);
+    await this.page.waitForLoadState("networkidle");
+    await this.page.waitForSelector(this.mostPopularTemplates, {state:"visible"});
     await this.page.waitForSelector(this.teamBoards, { state: "visible" });
   }
 
@@ -76,9 +80,11 @@ class HomePage extends BasePage {
   }
 
   async getTeamsBoards() {
+    await this.page.waitForLoadState("load");
     await this.page.waitForSelector(this.teamBoards, { state: "visible" });
-    await this.page.click(this.teamBoards);
-    await this.page.waitForSelector(`//*[text()='Your Team Boards']`);
+    let teamsBoardsUrl = await this.page.$(`[data-test-id='home-team-boards-tab']`);
+    await this.page.goto("https://trello.com"+ await teamsBoardsUrl.getAttribute("href"));
+    await this.page.waitForSelector(`//*[text()='Your team boards']`);
   }
 
   async viewClosedBoards() {
@@ -92,7 +98,7 @@ class HomePage extends BasePage {
   }
 
   async getClosedBoards() {
-    await this.page.waitForSelector(`//h2[text()='Closed Boards']`, {
+    await this.page.waitForSelector(`//h2[text()='Closed boards']`, {
       state: "visible",
     });
     await this.page.waitForSelector(`div._1rhhEuk7pUqNV_ a`, {
