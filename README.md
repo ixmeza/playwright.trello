@@ -1,3 +1,5 @@
+[![Build Status](https://dev.azure.com/ixmeza/Web%20-%20Tests/_apis/build/status/ixmeza.playwright.trello?branchName=main)](https://dev.azure.com/ixmeza/Web%20-%20Tests/_build/latest?definitionId=12&branchName=main)
+
 # playwright-trello
 Automated tests demo with playwright for trello (https://trello.com/) 
 
