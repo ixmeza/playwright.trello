@@ -13,7 +13,7 @@ steps:
 
   - task: replacetokens@3
     inputs:
-      targetFiles: 'config.json'
+      targetFiles: '**/config.json'
       encoding: 'auto'
       writeBOM: true
       actionOnMissing: 'warn'
