@@ -8,7 +8,7 @@
     "test": "test"
   },
   "scripts": {
-    "test": "./node_modules/mocha/bin/mocha --no-timeouts test/specs/e2e.test.js --reporter mocha-junit-reporter --reporter spec"
+    "test": "./node_modules/mocha/bin/mocha --no-timeouts test/specs/e2e.test.js --reporter mocha-junit-reporter --reporter-options mochaFile=./Results.xml"
   },
   "keywords": [],
   "author": "",
