@@ -1,5 +1,5 @@
 {
-    "email":"#{email-var}",
-    "password":"#{password-var}",
-    "username":"#{username-var}"
+    "email":"#{email-var}#",
+    "password":"#{password-var}#",
+    "username":"#{username-var}#"
 }
