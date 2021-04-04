@@ -11,19 +11,19 @@ steps:
   - script: npm install
     displayName: "Install dependencies"
 
-- task: replacetokens@3
-  inputs:
-    targetFiles: 'config.json'
-    encoding: 'auto'
-    writeBOM: true
-    actionOnMissing: 'warn'
-    keepToken: false
-    tokenPrefix: '#{'
-    tokenSuffix: '}#'
-    useLegacyPattern: false
-    enableTransforms: false
-    enableTelemetry: true
-    
+  - task: replacetokens@3
+    inputs:
+      targetFiles: 'config.json'
+      encoding: 'auto'
+      writeBOM: true
+      actionOnMissing: 'warn'
+      keepToken: false
+      tokenPrefix: '#{'
+      tokenSuffix: '}#'
+      useLegacyPattern: false
+      enableTransforms: false
+      enableTelemetry: true
+
   - script: npm run test
     displayName: "run tests"
     continueOnError: true
