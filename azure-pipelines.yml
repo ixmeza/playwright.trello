@@ -13,6 +13,7 @@ steps:
 
   - script: npm run test
     displayName: "run tests"
+    continueOnError: true
 
   - task: PublishTestResults@2
     inputs:
