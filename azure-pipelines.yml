@@ -14,9 +14,7 @@ steps:
   - script: npm run test
     displayName: "run tests"
 
-- task: PublishTestResults@2
-  inputs:
-    testResultsFormat: 'JUnit'
-    testResultsFiles: 'Results*.xml'
-    mergeTestResults: true
-    
+  - task: PublishTestResults@2
+    inputs:
+      testResultsFormat: 'JUnit'
+      testResultsFiles: '**/Results*.xml'
